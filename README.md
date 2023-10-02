@@ -7,4 +7,6 @@ Per rendere lo sviluppo più comodo è possibile avvalersi di uno script che asc
 Per fare ciò, si utilizza uno scriptino Ruby che richiede alcune librerie. Si esegua:
 1. `bundle install`
 2. `ruby listen.rb`
+
+
 Ora Quando si modifica un qualsiasi file .c, questo verrà compilato. L'eseguibile verrà eseguito e subito dopo eliminato, lasciando la directory pulita.
