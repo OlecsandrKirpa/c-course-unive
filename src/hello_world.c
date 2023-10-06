@@ -1,11 +1,6 @@
 // Standard IO library - Standard Input Output
 #include <stdio.h>
 
-/*
-    This programs just prints "Hello world!"
-    on your screen and terminates.
-*/
-
 void division(int a, int b) {
   printf("Division between %d and %d\n", a, b);
   printf("Result: %d\n", a/b);
