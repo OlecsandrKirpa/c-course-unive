@@ -1,0 +1,7 @@
+# ninja log v5
+0	43	1696594332908810828	CMakeFiles/c_course_unive.dir/src/hello_world.c.o	e7b79bb8288018fa
+43	67	1696594332932811048	c_course_unive	c1b053b4ee5fa13f
+0	33	1696595088459279812	CMakeFiles/c_course_unive.dir/src/hello_world.c.o	e7b79bb8288018fa
+33	56	1696595088479279975	c_course_unive	c1b053b4ee5fa13f
+0	32	1696595096431345033	CMakeFiles/c_course_unive.dir/src/hello_world.c.o	e7b79bb8288018fa
+32	55	1696595096451345197	c_course_unive	c1b053b4ee5fa13f
