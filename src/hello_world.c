@@ -115,9 +115,75 @@ void charVsStringLiterals() {
     printf("a1 = \"%s\"\n", a1);
 
     /**
-      Not a valid char.
+      Not a valid char:
       char a = 'Banana';
     */
+}
+
+void logSizeOf() {
+    printf("sizeof(1): %d\n", sizeof(1));
+    printf("sizeof(4): %d\n", sizeof(4));
+    printf("sizeof('C'): %d\n", sizeof('C'));
+    printf("sizeof('a'): %d\n", sizeof('a'));
+    printf("sizeof(1.1'): %d\n", sizeof(1.1));
+    printf("sizeof(10ul'): %lf\n", sizeof(10ul));
+}
+
+void declareAndAssign() {
+    int banana;
+    banana = 2;
+    printf("banana: %d\n", banana); // 2
+    banana = 10;
+    banana = 1.5; // wtf???
+    printf("banana: %d\n", banana); // 1
+    banana = 'g'; // WTFFFFFFF ????
+    printf("banana: %d\n", banana); // 103
+}
+
+void overwriteConst() {
+    const char BANANA = 'b';
+    // BANANA = 'g'; // Uncomment to see error
+    printf("banana %c\n", BANANA);
+
+    /*
+    #define char GANG = 'g';
+    unsigned char;
+    printf("gang: %c\n", GANG);
+    GANG = 'b'; // WTF
+    printf("gang: %c\n", GANG);
+     */
+}
+
+void studentgrade() {
+    printf("Enter student grade in American system\n");
+    const char grade = getchar();
+    printf("You entered: ");
+    putchar(grade);
+}
+
+void scanfExample() {
+    int myInt;
+    float myFloat;
+    char myChar;
+    printf("Input please: [int] [float] [char]\n");
+    scanf("%d %f %c", &myInt, &myFloat, &myChar);
+    printf("myInt: %d\n", myInt);
+    printf("myFloat: %f\n", myFloat);
+    printf("myChar: %c\n", myChar);
+}
+
+void rettangolo() {
+    printf("base: ");
+    float base;
+    scanf("%f", &base);
+    printf("altezza: ");
+    float altezza;
+    scanf("%f", &altezza);
+    printf("Base %f, altezza %f\n", base, altezza);
+
+    const float perimetro = (base + altezza) * 2;
+    const float area = base * altezza;
+    printf("Perimetro %f, Area %f", perimetro, area);
 }
 
 int main() {
@@ -134,5 +200,11 @@ int main() {
     // multipleAssignments();
     // literals();
     // charVsStringLiterals();
+    // logSizeOf();
+    // declareAndAssign();
+    // overwriteConst();
+    // studentgrade();
+    // scanfExample();
+    // rettangolo();
     return 0;
 }
