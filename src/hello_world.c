@@ -186,6 +186,42 @@ void rettangolo() {
     printf("Perimetro %f, Area %f", perimetro, area);
 }
 
+void variablePointer() {
+    int age = 12;
+    // &age <-- is a pointer!
+    // Reference to a pointer using %p
+
+    // Pointer is something like 0x7ffe5367e044
+    int *age_pointer = &age;
+    printf("age: %d, &age(age pointer): %p; age_pointer is: %p\n", age, &age, age_pointer);
+
+    char string = 'c';
+    // Note that when you need to store the reference, you use the variable type and add an asterisk at the end.
+    // If my variable is char, pointer will be char*
+    char *string_pointer = &string;
+    printf("string: %c, string_pointer: %p\n", string, string_pointer);
+
+    float my_float;
+    float *my_float_pointer = &my_float;
+    printf("Unassigned variable | my_float: %f; &my_float: %p\n", my_float, &my_float);
+    my_float = 9.2;
+    printf("After assignment | my_float: %f, &my_float: %p\n", my_float, &my_float);
+
+    // My pointer variable has itself a pointer!
+    printf("Pointer | my_float_pointer: %p; &my_float_pointer: %p\n", my_float_pointer, &my_float_pointer);
+}
+
+void variableDereference() {
+    int my_age = 43;
+    int* age_pointer = &my_age;
+    int *ptr = &my_age; // Pointer declaration
+    printf("my_age: %d\n", my_age);
+    printf("*&my_age: %d \n", *&my_age);
+
+    printf("age_pointer: %p\n", age_pointer);
+    printf("*ptr: %d \n", *ptr);
+}
+
 int main() {
     printf("Hello world!\n");
     // division(10, 3);
@@ -206,5 +242,7 @@ int main() {
     // studentgrade();
     // scanfExample();
     // rettangolo();
+    // variablePointer();
+    variableDereference();
     return 0;
 }
