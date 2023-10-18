@@ -1,3 +1,0 @@
-/home/sasha/git/c-course-unive/cmake-build-debug/CMakeFiles/c_course_unive.dir
-/home/sasha/git/c-course-unive/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/sasha/git/c-course-unive/cmake-build-debug/CMakeFiles/rebuild_cache.dir
