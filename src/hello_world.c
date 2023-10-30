@@ -213,13 +213,28 @@ void variablePointer() {
 
 void variableDereference() {
     int my_age = 43;
-    int* age_pointer = &my_age;
+    int *age_pointer = &my_age;
     int *ptr = &my_age; // Pointer declaration
     printf("my_age: %d\n", my_age);
     printf("*&my_age: %d \n", *&my_age);
 
     printf("age_pointer: %p\n", age_pointer);
+    printf("*age_pointer: %d\n", *age_pointer);
     printf("*ptr: %d \n", *ptr);
+}
+
+/**
+ * Initial array: {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+ * Final array:   {1, 3, 5, 7, 9, 0, 0, 0, 0, 0}
+ */
+void removeEvenNumbers(int *array, int array_length) {
+    for(int i = 0; i < array_length; i++) printf("%d\n", array[i]);
+    // TODO write a cool function that does this + test it with some framework.
+}
+
+void showRemoveEvenNumbers(){
+    int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    removeEvenNumbers(array, 10);
 }
 
 int main() {
@@ -243,6 +258,7 @@ int main() {
     // scanfExample();
     // rettangolo();
     // variablePointer();
-    variableDereference();
+     variableDereference();
+//    showRemoveEvenNumbers();
     return 0;
 }

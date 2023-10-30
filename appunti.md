@@ -22,3 +22,5 @@ It could be:
 - logical: `||`, `&&`
 - relational: `a < b`
 - bitwise.
+
+### Malloc

@@ -1,2 +1,7 @@
 cmake-build-debug
 hackerrank1
+hackerrank2
+es10
+.idea
+
+!src/*
