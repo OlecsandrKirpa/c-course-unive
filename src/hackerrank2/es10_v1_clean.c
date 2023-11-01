@@ -85,8 +85,7 @@ void write_line(const int row, const int col, const int length) {
 }
 
 int screen_size() {
-  // TODO: can +1 be removed ?
-  return screen_index(rows - 1, columns) + 1;
+  return screen_index(rows - 1, columns);
 }
 
 int triangle_height() { return ceil(((float)triangle_base) / 2); }
@@ -103,16 +102,6 @@ void initialize_screen() {
 
     write(row, columns, '\n');
   }
-
-  // print_screen();
-}
-
-void test_screen_index() {
-  printf("screen_index(0, 0): %d\n", screen_index(0, 0));
-  printf("screen_index(1, 0): %d\n", screen_index(1, 0));
-  printf("screen_index(1, 1): %d\n", screen_index(1, 1));
-  printf("screen_index(1, 5): %d\n", screen_index(1, 5));
-  printf("screen_index(2, 7): %d\n", screen_index(2, 7));
 }
 
 void draw_top_left(const int offset) {
@@ -173,8 +162,7 @@ void print_current_config() {
 void draw_everything() {
   initialize_screen();
 
-  if (verbose)
-    print_current_config();
+  if (verbose) print_current_config();
 
   for (int j = 0; j < max_triangles_in_vertical(); j++) {
     if (j % 2 == 0) {
@@ -197,148 +185,9 @@ void draw_everything() {
   screen_inintialized = false;
 }
 
-// /*
-void test_max_triangles_in_horizontal() {
-  // Saving for later original values
-  int old_columns = columns;
-  int old_rows = rows;
-  int old_base = triangle_base;
-
-  int expected;
-
-  // Case 1: 12 25 7
-  rows = 12;
-  columns = 25;
-  triangle_base = 7;
-  expected = 4;
-  if (max_triangles_in_horizontal() != expected)
-    printf("max_triangles_in_horizontal: %d | rows: %d | columns: %d | "
-           "triangle_base: %d\n",
-           max_triangles_in_horizontal(), rows, columns, triangle_base);
-
-  // Case 2: 6 13 5
-  rows = 6;
-  columns = 13;
-  triangle_base = 5;
-  expected = 3;
-  if (max_triangles_in_horizontal() != expected)
-    printf("max_triangles_in_horizontal: %d | rows: %d | columns: %d | "
-           "triangle_base: %d\n",
-           max_triangles_in_horizontal(), rows, columns, triangle_base);
-
-  // Case 2: 5 31 9
-  rows = 5;
-  columns = 31;
-  triangle_base = 9;
-  expected = 4;
-  if (max_triangles_in_horizontal() != expected)
-    printf("max_triangles_in_horizontal: %d | rows: %d | columns: %d | "
-           "triangle_base: %d\n",
-           max_triangles_in_horizontal(), rows, columns, triangle_base);
-
-  // Restoring original values after tests
-  triangle_base = old_base;
-  rows = old_rows;
-  columns = old_columns;
-}
-
-void test_max_triangles_in_vertical() {
-  // Saving for later original values
-  int old_columns = columns;
-  int old_rows = rows;
-  int old_base = triangle_base;
-
-  int expected;
-
-  // Case 1: 12 25 7
-  rows = 12;
-  columns = 25;
-  triangle_base = 7;
-  expected = 3;
-  if (max_triangles_in_vertical() != expected)
-    printf("max_triangles_in_vertical: %d | rows: %d | columns: %d | "
-           "triangle_base: %d\n",
-           max_triangles_in_vertical(), rows, columns, triangle_base);
-
-  // Case 2: 6 13 5
-  rows = 6;
-  columns = 13;
-  triangle_base = 5;
-  expected = 2;
-  if (max_triangles_in_vertical() != expected)
-    printf("max_triangles_in_vertical: %d | rows: %d | columns: %d | "
-           "triangle_base: %d\n",
-           max_triangles_in_vertical(), rows, columns, triangle_base);
-
-  // Case 3: 5 31 9
-  rows = 5;
-  columns = 31;
-  triangle_base = 9;
-  expected = 1;
-  if (max_triangles_in_vertical() != expected)
-    printf("max_triangles_in_vertical: %d | rows: %d | columns: %d | "
-           "triangle_base: %d\n",
-           max_triangles_in_vertical(), rows, columns, triangle_base);
-}
-
-void test_known_configurations() {
-  // Case 12 25 7
-  rows = 12;
-  columns = 25;
-  triangle_base = 7;
-  print_current_config();
-  draw_everything();
-
-  printf("\n\n");
-  // Case 6 13 5
-  rows = 6;
-  columns = 13;
-  triangle_base = 5;
-  print_current_config();
-  draw_everything();
-
-  printf("\n\n");
-  // Case 5 31 9
-  rows = 5;
-  columns = 31;
-  triangle_base = 9;
-  print_current_config();
-  draw_everything();
-
-  printf("\n\n");
-  // Case 60 67 19
-  rows = 60;
-  columns = 67;
-  triangle_base = 19;
-  print_current_config();
-  draw_everything();
-
-  printf("\n\n");
-  // Case 32 46 7
-  rows = 32;
-  columns = 46;
-  triangle_base = 7;
-  print_current_config();
-  draw_everything();
-
-  printf("\n\n");
-  // Case 25 37 9
-  rows = 25;
-  columns = 37;
-  triangle_base = 9;
-  print_current_config();
-  draw_everything();
-}
-//*/
-
 int main(void) {
     initialize();
     draw_everything();
-
-  //  test_screen_index();
-  //  test_max_triangles_in_vertical();
-  //  test_max_triangles_in_horizontal();
-//  test_known_configurations();
 
   return 0;
 }
