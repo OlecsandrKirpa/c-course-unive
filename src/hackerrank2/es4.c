@@ -19,7 +19,6 @@ int main(void) {
     float r = round_down(n);
 
     printf("r: %f\n", r);
-    printf("round_down: %f\n", round_down);
 
     return 0;
 }
