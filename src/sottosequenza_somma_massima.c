@@ -17,7 +17,7 @@ int somma_da_a(const int *arr, const int start_index, const int end_index) {
  * trovare la sottosequenza di valori consecutivi
  * nell'array che ha somma massima e restituirne la somma
  */
-int sottosequenza_somma_massima(const int *arr, const int arr_len) {
+int sottosequenza_somma_massima0(const int *arr, const int arr_len) {
   int max_sum = arr[0];
   int current_sum = 0;
 
@@ -39,6 +39,19 @@ int sottosequenza_somma_massima(const int *arr, const int arr_len) {
   return max_sum;
 }
 
+int sottosequenza_somma_massima(const int *arr, const int arr_len){
+  int max_sum = arr[0];
+
+  for(int i = 0; i < arr_len; i++){
+    for(int j = i; j < arr_len; j++){
+      const int current_sum = somma_da_a(arr, i, j);
+      if (max_sum < current_sum) max_sum = current_sum;
+    }
+  }
+
+  return max_sum;
+}
+
 bool all_tests_success = true;
 int test_sottosequenza_massima_run_case(const int *arr, const int arr_len,
                                         const int expected, const int line) {
@@ -51,7 +64,7 @@ int test_sottosequenza_massima_run_case(const int *arr, const int arr_len,
          line, arr_len, expected, result);
   for (int i = 0; i < arr_len; i++) {
     printf("%d", arr[i]);
-    if (i + i < arr_len)
+    if (i < arr_len)
       printf(", ");
   }
 
@@ -85,9 +98,8 @@ void test_sottosequenza_somma_massima(void) {
   test_sottosequenza_massima_run_case(arr4, 1, 100, __LINE__);
   test_sottosequenza_massima_run_case(arr4, 6, 110, __LINE__);
 
-  if (all_tests_success) {
-    printf("Congratulations! All tests completed as expected!\n");
-  }
+  const int arr5[] = {101, -1, 101, -1, 101, -1};
+  test_sottosequenza_massima_run_case(arr5, 6, 301, __LINE__);
 }
 
 int test_somma_da_a_run_case(const int *arr, const int arr_len,
@@ -103,7 +115,7 @@ int test_somma_da_a_run_case(const int *arr, const int arr_len,
          start_index, end_index, expected, result);
   for (int i = 0; i < arr_len; i++) {
     printf("%d", arr[i]);
-    if (i + i < arr_len)
+    if (i < arr_len)
       printf(", ");
   }
 
@@ -121,11 +133,20 @@ void test_somma_da_a(void) {
   const int arr1[] = {10, 20, 30};
   test_somma_da_a_run_case(arr1, 3, 0, 0, 10);
   test_somma_da_a_run_case(arr1, 3, 0, 2, 60);
+
+  const int arr2[] = {101, -1, 101, -1, 101, -1};
+  test_somma_da_a_run_case(arr2, 6, 0, 5, 300);
+  test_somma_da_a_run_case(arr2, 6, 0, 0, 101);
+  test_somma_da_a_run_case(arr2, 6, 0, 1, 100);
 }
 
 int main(void) {
   test_sottosequenza_somma_massima();
   test_somma_da_a();
+
+  if (all_tests_success) {
+    printf("Congratulations! All tests completed as expected!\n");
+  }
 
   //  const int arr[] = {1, 5, 10, -4, 100};
   //  printf("sottosequenza massima per {1, 5, 10, -4, 100} è: %d\n",
