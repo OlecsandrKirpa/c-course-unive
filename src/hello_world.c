@@ -237,6 +237,30 @@ void showRemoveEvenNumbers(){
     removeEvenNumbers(array, 10);
 }
 
+int pow_recursive(int n){
+    if (n == 0) return n;
+
+    return pow_recursive(n - 1) * 2;
+}
+
+int pow(int n){
+    int acc = 1;
+    for(int i = 0; i < n; i++){
+        acc = acc * 2;
+    }
+
+    printf("pow(%d): %d\n", n, acc);
+    return acc;
+}
+
+void test_pow(void){
+    pow(0);
+    pow(1);
+    pow(2);
+    pow(3);
+    pow(5);
+}
+
 int main() {
     printf("Hello world!\n");
     // division(10, 3);
@@ -258,7 +282,8 @@ int main() {
     // scanfExample();
     // rettangolo();
     // variablePointer();
-     variableDereference();
+//     variableDereference();
 //    showRemoveEvenNumbers();
+    test_pow();
     return 0;
 }

@@ -39,7 +39,20 @@ int sottosequenza_somma_massima0(const int *arr, const int arr_len) {
   return max_sum;
 }
 
+int sottosequenza_somma_massima_recursive(const int *arr, const int arr_len, int max_sum, const int start_index, const int end_index){
+  const int current_sum = somma_da_a(arr, start_index, end_index);
+  if (max_sum < current_sum) max_sum = current_sum;
+
+  printf("recursive | start_index: %d | arr_len: %d\n", start_index, arr_len);
+
+  if (start_index >= arr_len - 1) return max_sum;
+
+  return sottosequenza_somma_massima_recursive(arr, arr_len, max_sum, start_index + 1, end_index + 1);
+}
+
 int sottosequenza_somma_massima(const int *arr, const int arr_len){
+  return sottosequenza_somma_massima_recursive(arr, arr_len, 0, 0, 0);
+
   int max_sum = arr[0];
 
   for(int i = 0; i < arr_len; i++){
@@ -79,6 +92,7 @@ void test_sottosequenza_somma_massima(void) {
   const int arr0[] = {0, 10, 20, 30};
   test_sottosequenza_massima_run_case(arr0, 1, 0, __LINE__);
   test_sottosequenza_massima_run_case(arr0, 2, 10, __LINE__);
+  return;
   test_sottosequenza_massima_run_case(arr0, 3, 10 + 20, __LINE__);
   test_sottosequenza_massima_run_case(arr0, 4, 10 + 20 + 30, __LINE__);
 
