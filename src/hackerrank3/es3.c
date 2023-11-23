@@ -17,10 +17,12 @@ int main(void) {
     int v[10] = {0, 1, 2, 0, 4, 5, 0, 7, 8, 0};
 
     // loop 2
-    for (int i = v_size - 1; i >= 0; --i) {
+    for (int i = 10 - 1; i >= 0; --i) {
+        printf("v[%d]: %d\n", i, v[i]);
+
         if (*(v + i) >= *(v + i - 1)) {
             diminuendo(v + i - 1);
         }
     }
-    print_array(v, 10);
+//    print_array(v, 10);
 }
