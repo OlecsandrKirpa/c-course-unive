@@ -196,7 +196,7 @@ int test() {
 }
 
 int main() {
-  //    return test();
+      return test();
 
   FILE *fptr = fopen(getenv("OUTPUT_PATH"), "w");
 
